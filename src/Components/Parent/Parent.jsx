@@ -53,11 +53,36 @@ updateProduct = (productIndex)=>{
    myProducts[productIndex].count++;//action
    this.setState({products:myProducts}); //setState
 };
+x;
+constructor(){
+  console.log('Parent constructor called');
 
+  super();
+};
+
+componentDidMount(){
+  console.log('Parent componentDidMount called');
+  this.x=setInterval(()=>{
+    console.log('Hello');
+  },500);
+}
+
+componentDidUpdate(){
+  console.log('Parent componentDidUpdate called');
+}
+
+componentWillUnmount(){
+  console.log('Parent componentWillUnmount called');
+  clearInterval(this.x);
+}
   render() {
+  console.log('Parent render called');
+
     return <>
     <div className="container bg-dark py-2">
         <div className="row gy-2">
+
+
             {/* <h2>Parent Page</h2> */}
             { /* لو كان object */ }
             {/* <Child productInfo={this.state.product}/> */}
